@@ -318,26 +318,23 @@ export async function initFckCensor() {
 
     // апи для отправки заблюренных треков
     const api = {
-        API_URL: "https://pzomqvgckpgkshxhpite.supabase.co/rest/v1/",
-        KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6b21xdmdja3Bna3NoeGhwaXRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNTgzNDEsImV4cCI6MjA5MDYzNDM0MX0.ggCxM-ver3gDWUBWyhSBfy3n7rpdW8jtlxRQVCXkhNg",
+        API_URL: "https://ym-liberty-bot.vercel.app/api/bot",
         reportedTracks: [] as number[],
         report(trackId: any, replaced: boolean) {
             if (!trackId) return;
             trackId = Number(trackId);
             if (isNaN(trackId) || this.reportedTracks.includes(trackId)) return;
 
-            const targetTable = "reported_tracks";
             const body = {
+                type: 'report',
                 track_id: trackId,
                 replaced
             }
 
-            fetch(`${this.API_URL}${targetTable}`, {
+            fetch(this.API_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "apikey": this.KEY,
-                    "Authorization": `Bearer ${this.KEY}`,
                 },
                 body: JSON.stringify(body)
             })
@@ -347,8 +344,8 @@ export async function initFckCensor() {
                 }
                 this.reportedTracks.push(trackId);
                 openDB().then(db => {
-                    const tx = db.transaction(targetTable, 'readwrite');
-                    const store = tx.objectStore(targetTable);
+                    const tx = db.transaction('reported_tracks', 'readwrite');
+                    const store = tx.objectStore('reported_tracks');
                     store.put({ id: trackId });
                 });
                 log("Reported track " + trackId);
