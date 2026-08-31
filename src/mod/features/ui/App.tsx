@@ -1,4 +1,4 @@
-import { ThemeProvider } from "./contexts/ThemeContext";
+﻿import { ThemeProvider } from "./contexts/ThemeContext";
 import { useQuery } from "@tanstack/react-query";
 
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@ui/components/ui/sheet";
@@ -30,7 +30,7 @@ import { FaGithub } from "react-icons/fa";
 import { RxUpdate } from "react-icons/rx";
 
 const IS_DEV = false;
-const GITHUB_REPO_SLUG = "HoleverGG/YandexMusicBetaMod";
+const GITHUB_REPO_SLUG = "gagayhhad-tech/YandexMusicBetaMod-FckCensor";
 const GITHUB_REPO_URL = `https://github.com/${GITHUB_REPO_SLUG}`;
 
 export default function App() {
@@ -146,7 +146,7 @@ export default function App() {
                   backgroundImage: `url(${logo})`,
                 }}
               />
-              <span className="text-foreground text-base font-semibold">Yandex Music Mod</span>
+              <span className="text-foreground text-base font-semibold">YM Liberty Mod</span>
               <span className="text-muted-foreground text-xs font-semibold">v{import.meta.env.VITE_MOD_VERSION}</span>
             </div>
 
@@ -226,3 +226,4 @@ export default function App() {
     </ThemeProvider>
   );
 }
+

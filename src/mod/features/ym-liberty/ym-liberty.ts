@@ -581,7 +581,7 @@ export async function initYMLiberty() {
         `<svg 
             class="ExplicitMarkIcon_explicitMark__0BPeQ Meta_explicitMark__ocnCV Rkdd2vKC_3xa1eUdRdHP" 
             focusable="false" 
-            aria-label="Трек подменен аддоном ${ADDON_NAME}" 
+            aria-label="Оригинальный трек (${ADDON_NAME})" 
             data-test-id="REPLACED_MARK_ICON">
                 <use xlink:href="/icons/sprite.svg#edit_xxs">
                 </use>
@@ -701,5 +701,6 @@ export async function initYMLiberty() {
 }
 
 initYMLiberty();
+
 
 
