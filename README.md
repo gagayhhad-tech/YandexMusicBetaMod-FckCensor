@@ -1,11 +1,8 @@
-﻿# Yandex Music Liberty Mod
+# Yandex Music Liberty Mod
 
 Этот форк основан на оригинальных модах (YandexMusicBetaMod), но включает в себя **полностью независимую систему обхода цензуры (YM Liberty)** с собственной базой треков и ботом для заявок.
 
 ![Скриншот приложения](./docs/preview-5.117.1.png)
-
-> [!IMPORTANT]
-> Для использования модификации требуется официальная бета версия десктопного клиента Яндекс Музыки (Next.js).
 
 ## 🚀 Что добавлено и исправлено
 
@@ -21,7 +18,7 @@
 
 ## 📥 Как установить
 
-Готовые установщики находятся в разделе **[Releases](https://github.com/gagayhhad-tech/YandexMusicBetaMod/releases)** на GitHub.
+Готовый инсталлятор со вшитым модом находится в разделе **[Releases](https://github.com/gagayhhad-tech/YandexMusicBetaMod/releases)** на GitHub. Просто скачайте `.exe` файл и установите (официальный клиент отдельно качать не нужно, он уже внутри).
 
 ## 🛠 Сборка из исходников
 
@@ -40,9 +37,9 @@
 ## 💖 Благодарности оригинальным авторам
 
 Этот мод был бы невозможен без работы следующих людей:
-- [**Stephanzion**](https://github.com/Stephanzion/YandexMusicBetaMod) и [**qier222**](https://github.com/qier222/YandexMusicBetaMod) — за создание оригинального патчера и React-модов.
+- [**Stephanzion**](https://github.com/Stephanzion/YandexMusicBetaMod) — за создание оригинального патчера и React-модов.
 - [**HoleverGG**](https://github.com/HoleverGG/YandexMusicBetaMod) — за адаптацию мода под новые версии клиента.
-- [**Hazzz895**](https://github.com/Hazzz895/FckCensor) — за оригинальную идею FckCensor, которая легла в основу YM Liberty.
+- [**Hazzz895**](https://github.com/Hazzz895/FckCensor) — за оригинальную идею системы обхода цензуры, которая легла в основу YM Liberty.
 
 ## ⚖️ Отказ от ответственности
 
