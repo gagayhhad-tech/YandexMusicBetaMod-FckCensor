@@ -1,4 +1,4 @@
-const ADDON_NAME = "FckCensor";
+﻿const ADDON_NAME = "FckCensor";
 
 function log(...args: any[]) {
     console.debug("[" + ADDON_NAME + "]", ...args);
@@ -259,25 +259,28 @@ export async function initFckCensor() {
     let remoteTracks: Record<string, string> = {};
     let remoteExceptions: string[] = [];
 
-    fetch("https://raw.githubusercontent.com/gagayhhad-tech/ym-liberty-db/refs/heads/main/list.json")
-        .then(response => response.json())
-        .then(data => {
-            remoteTracks = data.tracks;
-            log("Tracks from remote repository:", remoteTracks);
-            openDB().then(db => {
-                const tx = db.transaction("remote_exceptions", 'readonly');
-                const store = tx.objectStore("remote_exceptions");
-                const request = store.getAll();
-
-                request.onsuccess = () => {
-                    remoteExceptions = request.result.map((item: any) => String(item.id));
-                };
+    function updateRemoteTracks() {
+        fetch(https://raw.githubusercontent.com/gagayhhad-tech/ym-liberty-db/refs/heads/main/list.json?t=)
+            .then(response => response.json())
+            .then(data => {
+                const isFirstLoad = Object.keys(remoteTracks).length === 0;
+                remoteTracks = data.tracks;
+                if (isFirstLoad) log(Tracks from remote repository:, remoteTracks);
+                openDB().then(db => {
+                    const tx = db.transaction(emote_exceptions, eadonly);
+                    const store = tx.objectStore(emote_exceptions);
+                    const request = store.getAll();
+                    request.onsuccess = () => {
+                        remoteExceptions = request.result.map((item: any) => String(item.id));
+                    };
+                });
+            })
+            .catch(err => {
+                console.error([FckCensor] Error fetching tracks: , err)
             });
-        })
-        .catch(err => {
-            console.error(`[${ADDON_NAME}] Ошибка при попытке получить список треков с удалённого репозитория: `, err)
-        });
-
+    }
+    updateRemoteTracks();
+    setInterval(updateRemoteTracks, 30000);
     // получение ссылки на трек
     function getReplaced(trackId: string | number | undefined | null) {
         if (!trackId) return null;
