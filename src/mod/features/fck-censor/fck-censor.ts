@@ -259,7 +259,7 @@ export async function initFckCensor() {
     let remoteTracks: Record<string, string> = {};
     let remoteExceptions: string[] = [];
 
-    fetch("https://raw.githubusercontent.com/Hazzz895/FckCensorData/refs/heads/main/list.json")
+    fetch("https://raw.githubusercontent.com/gagayhhad-tech/ym-liberty-db/refs/heads/main/list.json")
         .then(response => response.json())
         .then(data => {
             remoteTracks = data.tracks;
