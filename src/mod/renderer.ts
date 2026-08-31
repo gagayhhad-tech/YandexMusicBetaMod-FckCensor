@@ -1,4 +1,4 @@
-import { initFetchInterceptor } from "~/mod/features/utils";
+﻿import { initFetchInterceptor } from "~/mod/features/utils";
 
 // Инициализация мода utils для перехвата запросов к yandex api
 initFetchInterceptor();
@@ -33,5 +33,6 @@ import "./features/settings";
 // Инициализация мода для переопределения экспериментов
 import "./features/experiments-toggle";
 
-// Инициализация мода анти-цензуры FckCensor
-import "./features/fck-censor";
+// Инициализация мода анти-цензуры YMLiberty
+import "./features/ym-liberty";
+

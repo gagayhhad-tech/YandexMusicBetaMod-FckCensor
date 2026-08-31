@@ -1,4 +1,4 @@
-import axios from "axios";
+﻿import axios from "axios";
 import type { AxiosInstance } from "axios";
 import { Result, ResultAsync, ok, err, okAsync, errAsync } from "neverthrow";
 import { z } from "zod";
@@ -60,8 +60,8 @@ export async function getSign(params: { secretKey: string; data: string }): Prom
 // Получить прямую ссылку на трек
 export async function getTrackUrl(trackId: string, quality: QualityEnum): Promise<Result<any, string>> {
   try {
-    if (typeof (window as any).getFckCensorTrackUrlAsync === "function") {
-      const fckUrl = await (window as any).getFckCensorTrackUrlAsync(trackId);
+    if (typeof (window as any).getYMLibertyTrackUrlAsync === "function") {
+      const fckUrl = await (window as any).getYMLibertyTrackUrlAsync(trackId);
       if (fckUrl) {
         return ok({
           trackId: trackId,
@@ -319,3 +319,4 @@ export async function getAccountExperiments(): Promise<Result<any, string>> {
     return err(`Failed to get account experiments: ${error}`);
   }
 }
+
