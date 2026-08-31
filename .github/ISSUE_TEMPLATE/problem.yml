@@ -1,0 +1,15 @@
+name: У меня проблема
+description: Нажмите чтобы сообщить о проблеме
+labels: problem
+body:
+  - type: checkboxes
+    attributes:
+      label: Если приложение не работает, то убедитесь, что выключили VPN и находитесь в одной из разрешенных локаций
+      options:
+        - label: Я не использую VPN и нахожусь в одной из [разрешенных локаций](https://yandex.ru/support/music/ru/access.html).
+          required: true
+  - type: textarea
+    attributes:
+      label: Описание проблемы
+    validations:
+      required: true
