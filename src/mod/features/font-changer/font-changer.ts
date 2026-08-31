@@ -5,10 +5,21 @@ const stylesheetName = "yandex-music-mod-font-changer-style";
 async function updateFont() {
   const savedFontValue = await window.yandexMusicMod.getStorageValue("font-changer/savedFont");
   const fontChangerEnabled = await window.yandexMusicMod.getStorageValue("font-changer/enabled");
-  const savedFont = availableFonts.find((font) => font.name === savedFontValue) || availableFonts[0];
+  
+  let fontFamily = savedFontValue;
+  let extraStylesheet = "";
+  
+  const predefinedFont = availableFonts.find((font) => font.name === savedFontValue);
+  if (predefinedFont) {
+    fontFamily = predefinedFont.family;
+    extraStylesheet = predefinedFont.extraStylesheet || "";
+  } else if (!fontFamily) {
+    fontFamily = availableFonts[0]?.family || "Arial";
+  }
 
   console.log("[font-changer]", {
-    savedFont,
+    savedFontValue,
+    fontFamily,
     fontChangerEnabled,
   });
 
@@ -16,7 +27,7 @@ async function updateFont() {
 
   if (!fontChangerEnabled) return;
 
-  if (!savedFont) {
+  if (!fontFamily) {
     console.error("[font-changer]", "No font found");
     return;
   }
@@ -24,9 +35,9 @@ async function updateFont() {
   const styleSheet = document.createElement("style");
   styleSheet.id = stylesheetName;
   styleSheet.innerHTML = `* {
-  font-family: "${savedFont.family}" !important;
+  font-family: "${fontFamily}" !important;
 }
-${savedFont?.extraStylesheet || ""}
+${extraStylesheet}
 `;
   document.head.appendChild(styleSheet);
 }

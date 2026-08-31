@@ -137,6 +137,26 @@ export function CustomThemes() {
                   title={color}
                 />
               ))}
+              <div
+                className={`relative flex items-center justify-center w-8 h-8 rounded-lg border-2 transition-all hover:scale-110 overflow-hidden cursor-pointer ${
+                  !ACCENT_COLORS.includes(selectedAccentColor)
+                    ? "border-foreground shadow-md"
+                    : "border-transparent hover:border-muted-foreground/50"
+                }`}
+                title="Выбрать свой цвет"
+              >
+                <Palette className="absolute pointer-events-none w-4 h-4 text-white mix-blend-difference z-10" />
+                <input
+                  type="color"
+                  value={selectedAccentColor}
+                  onChange={(e) => {
+                    const color = e.target.value;
+                    setSelectedAccentColor(color);
+                    (window as any).yandexMusicMod.setStorageValue("custom-themes/accent", color);
+                  }}
+                  className="absolute -top-2 -left-2 w-12 h-12 cursor-pointer"
+                />
+              </div>
             </div>
 
             <div className="flex items-center gap-3">

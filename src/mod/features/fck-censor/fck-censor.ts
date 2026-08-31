@@ -299,6 +299,18 @@ export async function initFckCensor() {
         return url || src ? { url, src } : null;
     }
 
+    (window as any).getFckCensorTrackUrlAsync = async (tId: string) => {
+        const replacedTrack = getReplaced(tId);
+        if (replacedTrack && replacedTrack.src !== "remote_exception") {
+            let url = replacedTrack.url;
+            if (replacedTrack.src === "local" && !replacedTrack.url) {
+                url = await getLocalTrackUrl(tId);
+            }
+            return url;
+        }
+        return null;
+    };
+
     function isReplaced(trackId: string | number | undefined | null) {
         const replacedData = getReplaced(trackId);
         return !!(replacedData && replacedData.src !== "remote_exception");

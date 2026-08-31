@@ -27,6 +27,11 @@ div[class*="VibeAnimation_root__"]:after {
   background: transparent !important;
 }
 
+svg:has(use[href*="musicLogo"]),
+svg:has(use[*|href*="musicLogo"]) {
+  color: var(--yandexMusicModAccent) !important;
+}
+
 .ym-dark-theme {
   --ym-background-color-primary-enabled-basic: var(--yandexMusicModPalette-50) !important;
   --ym-background-color-primary-enabled-popover: var(--yandexMusicModPalette-100) !important;
@@ -49,8 +54,12 @@ div[class*="VibeAnimation_root__"]:after {
   --ym-controls-color-primary-default-pressed: var(--yandexMusicModPalette-500) !important;
 
   --ym-background-color-primary-enabled-content: var(--yandexMusicModPalette-100) !important;
-  --ym-logo-color-primary-variant: var(--yandexMusicModPalette-900) !important;
-  --ym-logo-color-primary-player: var(--yandexMusicModPalette-900) !important;
+  --ym-logo-color-primary-variant: var(--yandexMusicModAccent) !important;
+  --ym-logo-color-primary-player: var(--yandexMusicModAccent) !important;
+  --ym-logo-color-primary-brand: var(--yandexMusicModAccent) !important;
+  --ym-logo-color-primary-default: var(--yandexMusicModAccent) !important;
+  --ym-logo-color-secondary-brand: var(--yandexMusicModAccent) !important;
+  --ym-color-brand-primary: var(--yandexMusicModAccent) !important;
 }
 
 .ym-light-theme {
@@ -65,7 +74,10 @@ div[class*="VibeAnimation_root__"]:after {
   --ym-controls-color-primary-default-hovered: var(--yandexMusicModPalette-light-800) !important;
   --ym-controls-color-primary-default-pressed: var(--yandexMusicModPalette-light-600) !important;
 
-  --ym-logo-color-primary-variant: var(--yandexMusicModPalette-light-900) !important;
-  --ym-logo-color-primary-player: var(--yandexMusicModPalette-light-100) !important
-;
+  --ym-logo-color-primary-variant: var(--yandexMusicModAccent) !important;
+  --ym-logo-color-primary-player: var(--yandexMusicModAccent) !important;
+  --ym-logo-color-primary-brand: var(--yandexMusicModAccent) !important;
+  --ym-logo-color-primary-default: var(--yandexMusicModAccent) !important;
+  --ym-logo-color-secondary-brand: var(--yandexMusicModAccent) !important;
+  --ym-color-brand-primary: var(--yandexMusicModAccent) !important;
 }

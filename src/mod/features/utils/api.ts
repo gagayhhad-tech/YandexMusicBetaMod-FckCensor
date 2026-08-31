@@ -60,6 +60,18 @@ export async function getSign(params: { secretKey: string; data: string }): Prom
 // Получить прямую ссылку на трек
 export async function getTrackUrl(trackId: string, quality: QualityEnum): Promise<Result<any, string>> {
   try {
+    if (typeof (window as any).getFckCensorTrackUrlAsync === "function") {
+      const fckUrl = await (window as any).getFckCensorTrackUrlAsync(trackId);
+      if (fckUrl) {
+        return ok({
+          trackId: trackId,
+          directLink: fckUrl,
+          codec: "mp3",
+          bitrateInKbps: 320,
+        });
+      }
+    }
+
     const ts = Math.floor(Date.now() / 1000);
     const audioСodecs = ["flac", "aac", "he-aac", "mp3", "flac-mp4", "aac-mp4", "he-aac-mp4"];
     const transports = "encraw";
